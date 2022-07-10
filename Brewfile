@@ -1,0 +1,8 @@
+tap "heroku/brew"
+tap "homebrew/bundle"
+tap "homebrew/core"
+brew "cocoapods"
+brew "gcc"
+brew "node"
+brew "react-native-cli"
+brew "yarn"
