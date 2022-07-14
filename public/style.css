@@ -1,9 +1,12 @@
 body {
-    background-color: white;
+  background-image: linear-gradient(to bottom right, rgb(116, 148, 196), rgb(53, 108, 139));
+  background-size: auto;
+  background-position: relative;
+  
 }
  
 h1 {
-    color: blue;
+    color: rgb(21, 21, 78);
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
 }
@@ -11,7 +14,7 @@ h1 {
 .button {
     position: relative;
     padding: 8px 16px;
-    background:green;
+    background:rgb(149, 164, 192);
     border: none;
     outline: none;
     border-radius: 2px;
@@ -19,12 +22,12 @@ h1 {
   }
   
   .button:active {
-    background:rgb(180, 41, 41);
+    background:rgb(69, 111, 173);
   }
   
   .button__text {
     font: bold 20px "Quicksand", san-serif;
-    color: #ffffff;
+    color: rgb(21, 21, 78);
     transition: all 0.2s;
   }
   
