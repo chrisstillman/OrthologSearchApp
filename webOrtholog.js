@@ -44,8 +44,6 @@ fs.createReadStream("orthologSearch.csv")
 
 
     databall = {}
-console.log(selZero)
-console.log(databall)
 
     for(var i = 0; i < gene.length; i++) 
     {

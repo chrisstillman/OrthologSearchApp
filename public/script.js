@@ -1,7 +1,7 @@
 window.onload = function() {
-    document.querySelector(".spinner").hidden = true;
-    document.querySelector("input#submitBtn").addEventListener('click',(event)=> {
-        document.querySelector(".spinner").hidden = false;
+    const btn = document.querySelector(".button");
+    document.querySelector("button").addEventListener('click',(event)=> {
+        btn.classList.add("button--loading");
         var inputs = document.querySelectorAll("input");
         var values = [];
         for(var i = 0; i < 10; i++) {
@@ -21,4 +21,5 @@ window.onload = function() {
             values
         }));
     });
+    btn.classList.remove("button--loading");
 };
