@@ -6,8 +6,6 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
-app.use('/',express.static('public'));
-
 app.post('/generate', (req,res)=>{
     const values = req.body.values;
     webOrtholog(values, (link)=>{
@@ -15,6 +13,8 @@ app.post('/generate', (req,res)=>{
         console.log(link)
     });
 })
+
+app.use('/',express.static('public'));
 
 
 
