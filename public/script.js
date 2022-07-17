@@ -4,7 +4,7 @@ window.onload = function() {
         btn.classList.add("button--loading");
         var inputs = document.querySelectorAll("input");
         var values = [];
-        for(var i = 0; i < 10; i++) {
+        for(var i = 0; i < 10; i++) { //chekc this
             values.push(inputs[i].checked ? 1 : 0);
         }
 
