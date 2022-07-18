@@ -104,20 +104,25 @@ fs.createReadStream("orthologSearch.csv")
     {
       str += newGene[i].Dmel + "\t" + newGene[i].FBgn_Ortholog + "\t" + newGene[i].GeneSymbol + "\t" + newGene[i].OrthoDB + "\n";
     }
+
+    callback(str);
+
+    /*
     const randomFile = Math.floor(Math.random() * 1000);
 
     fs.writeFile(
       "./public/"+randomFile+".txt",
       str,
-      function (err) {
-        console.log("wrote file", randomFile);
+      function (err) { 
         if (err) {
           console.log(err);
-          callback('failed to write file' + randomFile);
+          console.log("failed to write file, expect a timeout");
+        } else {
+          console.log("wrote file", randomFile);
+          callback(randomFile)
         }
       });
-
-    callback(randomFile)
+      */
   });
 }
 

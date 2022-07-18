@@ -10,8 +10,8 @@ app.post('/generate', (req,res)=>{
     const values = req.body.values;
     webOrtholog(values, (link)=>{
         console.log("executing webortholog callback");
-        console.log("trying to send", link);
-        res.send(link+'')
+        res.set('Content-Type', 'text/plain');
+        res.send(link)
     });
 })
 
