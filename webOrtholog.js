@@ -27,6 +27,7 @@ fs.createReadStream("orthologSearch.csv")
   })
     
   .on("end", () => {
+    console.log("csv pipe ended");
     var specList = ["Dmoj", "Dana", "Dvir", "Dpse", "Dsec", "Dwil", "Dper", "Dyak", "Dsim", "Dere", "Dgri"];
 
     for(var i = 0; i < specList.length; i++) 
@@ -104,12 +105,18 @@ fs.createReadStream("orthologSearch.csv")
       str += newGene[i].Dmel + "\t" + newGene[i].FBgn_Ortholog + "\t" + newGene[i].GeneSymbol + "\t" + newGene[i].OrthoDB + "\n";
     }
     const randomFile = Math.floor(Math.random() * 1000);
+
     fs.writeFile(
       "./public/"+randomFile+".txt",
       str,
       function (err) {
-        if (err) return console.log(err);
+        console.log("wrote file", randomFile);
+        if (err) {
+          console.log(err);
+          callback('failed to write file' + randomFile);
+        }
       });
+
     callback(randomFile)
   });
 }
