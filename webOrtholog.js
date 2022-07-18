@@ -30,6 +30,7 @@ fs.createReadStream("orthologSearch.csv")
     console.log("csv pipe ended");
     var specList = ["Dmoj", "Dana", "Dvir", "Dpse", "Dsec", "Dwil", "Dper", "Dyak", "Dsim", "Dere", "Dgri"];
 
+    // one zero list
     for(var i = 0; i < specList.length; i++) 
     {
     //   let guess = prompt(console.log(specList[i]));
@@ -41,11 +42,11 @@ fs.createReadStream("orthologSearch.csv")
         selZero[specList[i]] = 0;
       }
     }
+    console.log('one zero list finishied');
 
 
-
+    console.log('databall start');
     databall = {}
-
     for(var i = 0; i < gene.length; i++) 
     {
       if(!(gene[i].OrthoDB  in databall)) {
@@ -54,6 +55,9 @@ fs.createReadStream("orthologSearch.csv")
       databall[gene[i].OrthoDB].push(gene[i].GeneSymbol.split('\\')[0])
       
     }
+    console.log('databall end');
+
+    console.log('find bad keys start');
     // find the bad keys
     let badkeys = []
     for (let key in databall) {
@@ -75,17 +79,17 @@ fs.createReadStream("orthologSearch.csv")
         }
       }
     }
+    console.log('find bad keys end');
 
+    console.log('remove bad keys start');
     // remove the bad keys
     badkeys.forEach(function(key) {
       delete databall[key];
     });
+    console.log('remove bad keys end');
 
+    console.log('good key search start');
     // only good keys remain
-    let goodKeys = Object.keys(databall);
-
-    let searchCriteria = Object.keys(selZero);
-
     for(var i = 0; i < gene.length; i++) {
       let row = {
         Dmel: gene[i].Dmel,
@@ -94,16 +98,19 @@ fs.createReadStream("orthologSearch.csv")
         OrthoDB: gene[i].OrthoDB
       };
       
-      if((goodKeys.indexOf(row.OrthoDB) !== -1) && (searchCriteria.indexOf(row.GeneSymbol.split('\\')[0]) !== -1)) {
+      if((databall.hasOwnProperty(row.OrthoDB)) && (selZero.hasOwnProperty(row.GeneSymbol.split('\\')[0]))) {
         newGene.push(row);  
       }
     }
+    console.log('good key search end');
       
+    console.log('string build begin');
     var str = "";
     for(var i = 0; i < newGene.length; i++) 
     {
       str += newGene[i].Dmel + "\t" + newGene[i].FBgn_Ortholog + "\t" + newGene[i].GeneSymbol + "\t" + newGene[i].OrthoDB + "\n";
     }
+    console.log('string build end');
 
     callback(str);
 
