@@ -1,20 +1,27 @@
 body {
-  background-image: linear-gradient(to bottom right, rgb(116, 148, 196), rgb(53, 108, 139));
-  background-size: auto;
+  background-color: rgb(149, 164, 192);
+  background-size: 50px;
   background-position: relative;
-  
+  background-image: url("fly.png");
+  background-repeat: repeat-x;
+ 
 }
  
 h1 {
-    color: rgb(21, 21, 78);
+    color: rgb(255, 255, 255);
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
+    line-height: 4;
+}
+
+h2 {
+    
 }
 
 .button {
     position: relative;
     padding: 8px 16px;
-    background:rgb(149, 164, 192);
+    background:rgb(74, 84, 104);
     border: none;
     outline: none;
     border-radius: 2px;
@@ -27,7 +34,7 @@ h1 {
   
   .button__text {
     font: bold 20px "Quicksand", san-serif;
-    color: rgb(21, 21, 78);
+    color: rgb(255, 255, 255);
     transition: all 0.2s;
   }
   

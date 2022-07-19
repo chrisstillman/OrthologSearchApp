@@ -90,6 +90,9 @@ fs.createReadStream("orthologSearch.csv")
 
     console.log('good key search start');
     // only good keys remain
+    //let goodKeys = Object.keys(databall); // using databall.hasOwnProperty(key) instead .... dictionary lookup w/ hash, O(1)
+    //let searchCriteria = Object.keys(selZero); // using selZero.hasOwnProperty(key) .. same as above
+
     for(var i = 0; i < gene.length; i++) {
       let row = {
         Dmel: gene[i].Dmel,
