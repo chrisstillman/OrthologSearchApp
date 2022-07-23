@@ -1,2 +1,2 @@
 Site is published at  
- https://jameswclark.github.io/OrthologSearchApp/
+https://chrisstillman.github.io/OrthologSearchApp/
