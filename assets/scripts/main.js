@@ -13,7 +13,7 @@ function webOrtholog(webValues, callback) {
   var selZero = {}
 
   //Dmel,Ortholog,GeneSymbol,OrthoDB
-  Papa.parse('../assets/data/orthologSearch.csv', {
+  Papa.parse('assets/data/orthologSearch.csv', {
     download: true,
     header: true,
     step: function (results) {
